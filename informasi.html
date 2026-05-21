@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Website resmi Pramuka SMK Alhuda Sariwangi. Informasi, berita, dan pengumuman kegiatan terbaru."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi - Pramuka SMK Alhuda Sariwangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #5C4033; --secondary-color: #8B5A2B; --highlight-color: #DAA520; --bg-color: #F8F9FA; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Navbar (Konsisten) */
+        nav { background-color: var(--primary-color); padding: 15px 30px; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); }
+        
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: white; border-radius: 3px; transition: 0.3s; }
+
+        @media (max-width: 768px) {
+            nav { display: flex; justify-content: flex-end; padding: 15px 20px; }
+            .menu-toggle { display: flex; }
+            nav ul { display: none; flex-direction: column; width: 100%; background-color: var(--primary-color); position: absolute; top: 55px; left: 0; padding: 10px 0 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.2); }
+            nav ul.active { display: flex; }
+            nav ul li { width: 100%; text-align: center; margin: 5px 0; }
+            nav ul li a { display: block; padding: 12px; border-radius: 0; }
+        }
+        
+        .page-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
+        
+        /* Layout Informasi */
+        .container { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; flex: 1; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Desain Kartu Informasi */
+        .info-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: 0.3s; position: relative; }
+        .info-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+        
+        /* Badge Kategori Sesuai Request */
+        .badge { position: absolute; top: 15px; left: 15px; padding: 6px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; text-transform: uppercase; letter-spacing: 1px; z-index: 2; }
+        .badge.penting { background-color: #d9534f; } /* Merah */
+        .badge.rutin { background-color: #0275d8; }   /* Biru */
+        .badge.lainnya { background-color: #5cb85c; }  /* Hijau */
+
+        /* Gambar Info */
+        .info-img { width: 100%; height: 180px; object-fit: cover; }
+        
+        /* Konten Kartu */
+        .info-content { padding: 25px; display: flex; flex-direction: column; flex: 1; }
+        .info-date { font-size: 0.85rem; color: #888; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
+        .info-title { color: var(--primary-color); font-size: 1.25rem; margin-bottom: 12px; line-height: 1.4; }
+        .info-text { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; text-align: justify; }
+        
+        /* Tombol Selengkapnya */
+        .btn-more { margin-top: auto; display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-align: center; transition: 0.3s; border: 2px solid var(--primary-color); }
+        .btn-more:hover { background-color: transparent; color: var(--primary-color); }
+        
+        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; width: 100%; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul id="nav-menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
+            <li><a href="informasi.html" class="active">Informasi</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="formulir.html">Formulir Pendaftaran</a></li>
+        </ul>
+    </nav>
+    
+    <div class="page-header">
+        <h1>Informasi & Agenda Kegiatan</h1>
+    </div>
+    
+    <div class="container">
+        <div class="info-grid">
+            
+            <div class="info-card">
+                <span class="badge penting">Penting</span>
+                <div class="info-content">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWR1bCUyMGFkaGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Pendaftaran Anggota Baru" class="info-img">
+                    <div class="info-date">📅 20 juli 2026</div>
+                    <h3 class="info-title">Pendaftaran Anggota Baru Ambalan Periode 2026/2027 Telah Dibuka!</h3>
+                    <p class="info-text">Bagi adik-adik kelas X yang tertarik mengembangkan jiwa kepemimpinan dan kemandirian, yuk gabung bersama kami. Silakan isi formulir pendaftaran digital melalui menu di atas.</p>
+                    <a href="formulir.html" class="btn-more">Daftar Sekarang &rarr;</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="badge rutin">Rutin</span>
+                <div class="info-content">
+                    <img src="img/PRADANA_P.jpeg" alt="Latihan Rutin" class="info-img">
+                    <div class="info-date">📅 Setiap Jumat</div>
+                    <h3 class="info-title">Latihan Rutin Mingguan : Partisipasi Pelantikan OSIS</h3>
+                    <p class="info-text">Diberitahukan kepada seluruh anggota dewan ambalan diwajibkan hadir untuk mengikuti latihan untuk membantu melancarkan kegiatan Pelantikan OSIS</p>
+                    <a href="#" class="btn-more">Lihat Detail Jadwal</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="badge lainnya">Informasi Lain</span>
+                <div class="info-content">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWR1bCUyMGFkaGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Hari Raya idul Adha" class="info-img">
+                    <div class="info-date">📅 27 mei 2026</div>
+                    <h3 class="info-title">Hari Raya idul Adha</h3>
+                    <p class="info-text">Sebaik-baiknya manusia adalah mereka yang bermanfaat bagi sesama. Mari rayakan hari kemenangan ini dengan saling berbagi kebahagiaan.</p>
+                    <a href="#" class="btn-more">Baca Berita Lengkap</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 Pramuka SMK Alhuda Sariwangi. All rights reserved.</p></footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

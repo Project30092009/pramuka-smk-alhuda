@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Website resmi Pramuka SMK Alhuda Sariwangi. Tempat pendaftaran anggota baru dan informasi kegiatan pramuka sekolah."/>
+    <meta name="keywords" content="Pramuka SMK Alhuda Sariwangi, SMK Alhuda, Pramuka Sariwangi, Pendaftaran Pramuka"/>
+    <meta name="author" content="Pramuka SMK Alhuda Sariwangi"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Kepengurusan - Pramuka SMK Alhuda Sariwangi</title>
+    <style>
+        :root { --primary-color: #5C4033; --secondary-color: #8B5A2B; --accent-color: #DAA520; --bg-color: #FDFBF7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: var(--bg-color); }
+        
+        nav { background-color: var(--primary-color); padding: 15px 30px; position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 16px; padding: 8px 12px; border-radius: 5px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--accent-color); color: var(--primary-color); }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+        }
+        
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: flex; justify-content: flex-end; padding: 15px 20px; }
+            .menu-toggle { display: flex; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-color);
+                position: absolute;
+                top: 55px;
+                left: 0;
+                padding: 10px 0 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { width: 100%; text-align: center; margin: 5px 0; }
+            nav ul li a { display: block; padding: 12px; border-radius: 0; }
+        }
+        
+        .container { max-width: 1200px; margin: 40px auto; padding: 20px; text-align: center; }
+        .section-title { color: var(--primary-color); margin-bottom: 40px; font-size: 2.5rem; text-transform: uppercase; border-bottom: 3px solid var(--accent-color); display: inline-block; padding-bottom: 10px; }
+        
+        .tier { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; }
+        
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); transition: 0.3s; width: 250px; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.15); }
+        
+        .card h3 { color: var(--primary-color); margin-top: 15px; font-size: 1.2rem; }
+        .card p { color: #666; font-weight: bold; font-size: 0.9rem; margin-top: 5px; color: var(--secondary-color); }
+
+        .img-elegan { width: 200px; height: 260px; object-fit: cover; border-radius: 20px; border: 4px solid var(--accent-color); }
+        .img-bulat { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--secondary-color); }
+
+        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul id="nav-menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="strukturpengurus.html" class="active">Struktur Kepengurusan</a></li>
+            <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="formulir.html">Formulir Pendaftaran</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h2 class="section-title">Struktur Kepengurusan Periode 2026/2027</h2>
+        
+         <div class="tier">
+            <div class="card">
+                <img src="https://via.placeholder.com/200x260" alt="KAMABIGUS" class="img-elegan">
+                <h3>Dr. H. Ahmad Sopandi M.Pd</h3>
+                <p>KAMABIGUS</p>
+            </div>
+        </div>
+        
+        <div class="tier">
+            <div class="card">
+                <img src="https://via.placeholder.com/200x260" alt="Pembina Gugus Depan" class="img-elegan">
+                <h3>Dudung Abdussalam, S.kom</h3>
+                <p>Pembina Gugus Depan</p>
+            </div>
+        </div>
+        
+        <div class="tier">
+            <div class="card">
+                <img src="https://via.placeholder.com/200x260" alt="Pembina Putra" class="img-elegan">
+                <h3>Silmi Adhiyaksa</h3>
+                <p>Pembina Putra</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/200x260" alt="Pembina Putri" class="img-elegan">
+                <h3>Tini Nuraeni</h3>
+                <p>Pembina Putri</p>
+            </div>
+        </div>
+
+        <div class="tier">
+            <div class="card">
+                <img src="img/PRADANA_P.jpeg" alt="Pradana Putra" class="img-elegan">
+                <h3>Nurul Hakalimatin SA</h3>
+                <p>Pradana Putra</p>
+            </div>
+            <div class="card">
+                <img src="img/PRADANA.jpeg" alt="Pradana Putri" class="img-elegan">
+                <h3>Sovy Sukmawati FA</h3>
+                <p>Pradana Putri</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="font-size: 1.8rem; border:none; margin-bottom: 20px;">BADAN PENGURUS HARIAN</h2>
+        <div class="tier">
+            <div class="card">
+                <img src="img/KRANI_I.jpeg" alt="Krani I" class="img-bulat">
+                <h3>Salma Salbiyah FA</h3>
+                <p>Krani I</p>
+            </div>
+            <div class="card">
+                <img src="img/KRANI_II.jpeg" alt="Krani II" class="img-bulat">
+                <h3>Mohammad Yasir A SA</h3>
+                <p>Krani II</p>
+            </div>
+            <div class="card">
+                <img src="img/HARTAKA_I.jpeg" alt="Hartaka I" class="img-bulat">
+                <h3>Andini Putri Awalia FA</h3>
+                <p>Hartaka I</p>
+            </div>
+            <div class="card">
+                <img src="img/HARTAKA_II.jpeg" alt="Hartaka II" class="img-bulat">
+                <h3>Nita Ariska FA</h3>
+                <p>Hartaka II</p>
+            </div>
+        </div>
+        
+        <div class="tier">
+            <div class="card">
+                <img src="img/JUDAT_I.jpeg" alt="Judat I" class="img-bulat">
+                <h3>Fina Amelia FA</h3>
+                <p>Judat I</p>
+            </div>
+            <div class="card">
+                <img src="img/JUDAT_II.jpeg" alt="Judat II" class="img-bulat">
+                <h3>Madinatun Naja FA</h3>
+                <p>Judat II</p>
+            </div>
+            <div class="card">
+                <img src="img/JUDAT_III.jpeg" alt="Judat III" class="img-bulat">
+                <h3>Muhammad Ramanda SA</h3>
+                <p>Judat III</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="font-size: 1.8rem; border:none; margin-bottom: 20px;">Bidang Penelitian Dan Evaluasi</h2>
+        <div class="tier">
+            <div class="card">
+                <img src="img/LITEV.jpeg" alt="Litev" class="img-bulat">
+                <h3>Sendi Maulana Mufti SA</h3>
+                <p>Kepala Bidang Penelitian Dan Evaluasi</p>
+            </div>
+            <div class="card">
+                <img src="img/SEKRE_LITEV.jpeg" alt="Sekre Litev" class="img-bulat">
+                <h3>Siti Dwi FA</h3>
+                <p>Sekretaris Bidang Penelitian Dan Evaluasi</p>
+            </div>
+            <div class="card">
+                <img src="img/ANGGOTA_LITEV.jpeg" alt="Anggota Litev" class="img-bulat">
+                <h3>Hasna Hasanah FA</h3>
+                <p>Anggota Bidang Penelitian Dan Evaluasi</p>
+            </div>
+        </div>
+         <h2 class="section-title" style="font-size: 1.8rem; border:none; margin-bottom: 20px;">Bidang Kajian Kepramukaan</h2>
+         <div class="tier">
+            <div class="card">
+                <img src="img/KAPRA.jpeg" alt="Kapra" class="img-bulat">
+                <h3>Laila Agustin FA</h3>
+                <p>Kepala Bidang Kajian Kepramukaan</p>
+            </div>
+            <div class="card">
+                <img src="img/SEKRE_KAPRA.jpeg" alt="Sekre Kapra" class="img-bulat">
+                <h3>Aulia Sri Maulidah FA</h3>
+                <p>Sekretaris Bidang Kajian Kepramukaan</p>
+            </div>
+        </div>
+         <h2 class="section-title" style="font-size: 1.8rem; border:none; margin-bottom: 20px;">Bidang Bimbingan Dan Pengembangan</h2>
+         <div class="tier">
+            <div class="card">
+                <img src="img/BIMBANG.jpeg" alt="Bimbang" class="img-bulat">
+                <h3>Humaira Azhar FA</h3>
+                <p>Kepala Bidang Bimbingan Dan Pengembangan</p>
+            </div>
+            <div class="card">
+                <img src="img/SEKRE_BIMBANG.jpeg" alt="Sekre Bimbingan" class="img-bulat">
+                <h3>Siva Suhartini FA</h3>
+                <p>Sekretaris Bidang Bimbingan Dan Pengembangan</p>
+            </div>
+        </div>
+        <h2 class="section-title" style="font-size: 1.8rem; border:none; margin-bottom: 20px;">Bidang Kegiatan Dan Operasional</h2>
+         <div class="tier">
+            <div class="card">
+                <img src="img/GIATOP.jpeg" alt="Kegiatan" class="img-bulat">
+                <h3>Salwa Zahra Aulia FA</h3>
+                <p>Kepala Bidang Kegiatan Dan Operasional</p>
+            </div>
+            <div class="card">
+                <img src="img/SEKRE_GIATOP.jpeg" alt="Sekre Kegiatan" class="img-bulat">
+                <h3>Sri Zahra Awalia FA</h3>
+                <p>Sekretaris Bidang Kegiatan Dan Operasional</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Pramuka SMK Alhuda Sariwangi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

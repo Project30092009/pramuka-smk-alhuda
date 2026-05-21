@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Website resmi Pramuka SMK Alhuda Sariwangi. Galeri kegiatan pramuka sekolah."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Pramuka SMK Alhuda Sariwangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #5C4033; --secondary-color: #8B5A2B; --highlight-color: #DAA520; --bg-color: #F8F9FA; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Navbar (Sama dengan halaman lain) */
+        nav { background-color: var(--primary-color); padding: 15px 30px; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); }
+        
+        /* Tombol Menu HP */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: white; border-radius: 3px; transition: 0.3s; }
+
+        @media (max-width: 768px) {
+            nav { display: flex; justify-content: flex-end; padding: 15px 20px; }
+            .menu-toggle { display: flex; }
+            nav ul { display: none; flex-direction: column; width: 100%; background-color: var(--primary-color); position: absolute; top: 55px; left: 0; padding: 10px 0 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.2); }
+            nav ul.active { display: flex; }
+            nav ul li { width: 100%; text-align: center; margin: 5px 0; }
+            nav ul li a { display: block; padding: 12px; border-radius: 0; }
+        }
+        
+        .page-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
+        
+        /* Container Galeri */
+        .container { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; flex: 1; }
+        
+        /* Gaya Grup Kategori */
+        .gallery-group { margin-bottom: 50px; }
+        .group-title { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 20px; border-bottom: 3px solid var(--highlight-color); display: inline-block; padding-bottom: 5px; }
+        
+        /* Grid Foto */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        
+        /* Kartu Foto & Caption */
+        .gallery-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .gallery-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .gallery-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--highlight-color); }
+        .gallery-card .caption { padding: 15px; text-align: center; font-weight: 600; color: var(--secondary-color); font-size: 1rem; }
+        
+        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; width: 100%; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul id="nav-menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
+            <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="formulir.html">Formulir Pendaftaran</a></li>
+        </ul>
+    </nav>
+    
+    <div class="page-header">
+        <h1>Galeri Kegiatan</h1>
+    </div>
+    
+    <div class="container">
+        
+        <div class="gallery-group">
+            <h2 class="group-title">🏕️ PERMATA 2025</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="img/PERMATA_III.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Foto Bersama</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/PERMATA_II.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Upacara Pembukaan</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/PERMATA_I.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Fun Color</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-group">
+            <h2 class="group-title">🤝Bakti Sosial</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="img/BAKSOS_MASJID.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Baksos Masjid Kwarcab</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/BAKSOS_DONASI.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Baksos Open Donasi</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/SANGGA_KERJA.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Foto Bersama Sangga Kerja</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-group">
+            <h2 class="group-title">🔥Raimuna Cabang</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="img/RAIMUNA_I.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Foto Bersama</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/RAIMUNA_II.jpeg" alt="Foto Kegiatan">
+                    <div class="caption">Foto Kegiatan Ketika Raimuna</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer><p>&copy; 2026 Pramuka SMK Alhuda Sariwangi. All rights reserved.</p></footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

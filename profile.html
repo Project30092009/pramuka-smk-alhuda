@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Website resmi Pramuka SMK Alhuda Sariwangi. Tempat pendaftaran anggota baru dan informasi kegiatan pramuka sekolah."/>
+    <meta name="keywords" content="Pramuka SMK Alhuda Sariwangi, SMK Alhuda, Pramuka Sariwangi, Pendaftaran Pramuka"/>
+    <meta name="author" content="Pramuka SMK Alhuda Sariwangi"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Pramuka SMK Alhuda Sariwangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #5C4033; --secondary-color: #8B5A2B; --highlight-color: #DAA520; --bg-color: #F8F9FA; --text-color: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); }
+        
+        nav { background-color: var(--primary-color); padding: 15px 30px; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+        }
+        
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: flex; justify-content: flex-end; padding: 15px 20px; }
+            .menu-toggle { display: flex; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-color);
+                position: absolute;
+                top: 55px;
+                left: 0;
+                padding: 10px 0 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { width: 100%; text-align: center; margin: 5px 0; }
+            nav ul li a { display: block; padding: 12px; border-radius: 0; }
+        }
+        .page-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
+        .container { max-width: 900px; margin: 0 auto 50px; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--primary-color); border-bottom: 3px solid var(--highlight-color); padding-bottom: 10px; margin-bottom: 20px; display: inline-block; }
+        p { margin-bottom: 15px; text-align: justify; line-height: 1.8; color: #555; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; margin-bottom: 20px; }
+        
+        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul id="nav-menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+            <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
+            <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="formulir.html">Formulir Pendaftaran</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <h1>Profile Ambalan</h1>
+    </div>
+
+    <div class="container">
+        <h2>Sejarah Singkat</h2>
+        <p>Dewan Ambalan Salman Alfarisi dan Fatimah Az Zahra adalah wadah pembinaan Gerakan Pramuka yang berpangkalan di SMK Alhuda Sariwangi. Kami berkomitmen untuk membentuk generasi muda yang tangguh, mandiri, dan berakhlak mulia berlandaskan Tri Satya dan Dasa Darma Pramuka.</p>
+        
+        <h2 style="margin-top: 30px;">Visi & Misi</h2>
+        <p><strong>Visi:</strong> Terwujudnya anggota pramuka yang berkarakter, inovatif, dan berdaya saing tinggi di era digitalisasi.</p>
+        <p><strong>Misi:</strong></p>
+        <ul>
+            <li>Menyelenggarakan kegiatan kepramukaan yang adaptif dan menantang.</li>
+            <li>Membina kepemimpinan, kedisiplinan, dan kemandirian setiap anggota.</li>
+            <li>Berperan aktif dalam kegiatan sosial bermasyarakat demi nama baik sekolah.</li>
+        </ul>
+    </div>
+    <footer><p>&copy; 2026 Pramuka SMK Alhuda Sariwangi. All rights reserved.</p></footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

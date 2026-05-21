@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Website resmi Pramuka SMK Alhuda Sariwangi. Tempat pendaftaran anggota baru dan informasi kegiatan pramuka sekolah."/>
+    <meta name="keywords" content="Pramuka SMK Alhuda Sariwangi, SMK Alhuda, Pramuka Sariwangi, Pendaftaran Pramuka"/>
+    <meta name="author" content="Pramuka SMK Alhuda Sariwangi"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir - Pramuka SMK Alhuda Sariwangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root { 
+            --primary-color: #5C4033; 
+            --secondary-color: #8B5A2B; 
+            --highlight-color: #DAA520; 
+            --bg-color: #F8F9FA; 
+            --wa-color: #25D366; 
+            --email-color: #0277BD; 
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); }
+        
+        /* Navigasi Utama */
+        nav { 
+            background-color: var(--primary-color); 
+            padding: 15px 30px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); }
+        
+        /* --- GAYA TOMBOL HAMBURGER --- */
+        .menu-toggle {
+            display: none; /* Sembunyikan di PC */
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+            z-index: 1001; /* Pastikan tombol selalu berada paling atas */
+        }
+        
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white; 
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* --- MODE HP (Lebar layar di bawah 768px) --- */
+        @media (max-width: 768px) {
+            nav {
+                justify-content: flex-end; /* Posisi tombol hamburger di kanan */
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: flex; /* Munculkan tombol di HP */
+            }
+
+            nav ul {
+                display: none; /* Sembunyikan menu bawaan */
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-color);
+                position: absolute;
+                top: 100%; /* Turun tepat di bawah navbar */
+                left: 0;
+                padding: 10px 0 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+                z-index: 1000;
+            }
+
+            nav ul.active {
+                display: flex; /* Munculkan menu saat tombol diklik */
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            nav ul li a {
+                display: block; 
+                padding: 12px;
+                border-radius: 0; 
+            }
+        }
+
+        .page-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
+        .container { max-width: 700px; margin: 0 auto 60px; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .section-title { margin-top: 30px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; color: var(--secondary-color); font-size: 1.2rem; font-weight: 700; }
+        .section-title:first-child { margin-top: 0; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary-color); font-size: 0.95rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #eee; border-radius: 8px; font-size: 1rem; transition: 0.3s; font-family: 'Poppins', sans-serif; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--highlight-color); outline: none; }
+        
+        .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .form-row .form-group { flex: 1; min-width: 250px; }
+        
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
+        .btn-submit { flex: 1; min-width: 150px; border: none; padding: 15px; font-size: 1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; color: white; }
+        .btn-wa { background-color: var(--wa-color); }
+        .btn-email { background-color: var(--email-color); }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); filter: brightness(0.9); }
+        
+        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .form-row .form-group { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul id="nav-menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
+            <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="formulir.html" class="active">Formulir Pendaftaran</a></li>
+        </ul>
+    </nav>
+    
+    <div class="page-header">
+        <h1>Formulir Pendaftaran</h1>
+    </div>
+    
+    <div class="container">
+        <form id="formPramuka">
+            <h3 class="section-title">A. Data Pribadi</h3>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap" required="required" />
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Tempat Lahir</label>
+                    <input type="text" id="tempatLahir" placeholder="Contoh: Tasikmalaya" required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Lahir</label>
+                    <input type="date" id="tanggalLahir" required="required" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>No. WhatsApp</label>
+                    <input type="tel" id="nowa" placeholder="08..." required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Nama Instagram (IG)</label>
+                    <input type="text" id="ig" placeholder="@username (opsional)" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Agama</label>
+                    <select id="agama" required="required">
+                        <option value="" disabled="disabled" selected="selected">-- Pilih Agama --</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Katolik">Katolik</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddha">Buddha</option>
+                        <option value="Konghucu">Konghucu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Golongan Darah</label>
+                    <select id="golDarah" required="required">
+                        <option value="" disabled="disabled" selected="selected">-- Pilih Golongan --</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                        <option value="Tidak Tahu">Tidak Tahu</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Asal Sekolah (SMP/MTs)</label>
+                <input type="text" id="asalSekolah" placeholder="Contoh: SMPN 1 Sariwangi" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label>Alamat Rumah Lengkap</label>
+                <textarea id="alamat" rows="3" placeholder="Nama Jalan, RT/RW, Desa, Kecamatan..." required="required"></textarea>
+            </div>
+
+            <h3 class="section-title">B. Data Keluarga</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nama Ayah</label>
+                    <input type="text" id="namaAyah" required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Nama Ibu</label>
+                    <input type="text" id="namaIbu" required="required" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Pekerjaan Ayah</label>
+                    <input type="text" id="kerjaAyah" required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Pekerjaan Ibu</label>
+                    <input type="text" id="kerjaIbu" required="required" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>No. WA Orang Tua / Wali</label>
+                    <input type="tel" id="waOrtu" placeholder="08..." required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Anak ke-</label>
+                    <input type="number" id="anakKe" min="1" placeholder="Contoh: 1" required="required" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Jumlah Saudara Laki-laki</label>
+                    <input type="number" id="saudaraPutra" min="0" placeholder="... orang" required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Saudara Perempuan</label>
+                    <input type="number" id="saudaraPutri" min="0" placeholder="... orang" required="required" />
+                </div>
+            </div>
+
+            <h3 class="section-title">C. Minat & Pengalaman</h3>
+            <div class="form-group">
+                <label>Bakat dan Hobi</label>
+                <input type="text" id="bakat" placeholder="Contoh: Menyanyi, Olahraga, Menggambar..." required="required" />
+            </div>
+
+            <div class="form-group">
+                <label>Pengalaman dalam Kepramukaan (Jika ada)</label>
+                <textarea id="pengalaman" rows="2" placeholder="Contoh: Pernah ikut Jambore / Pratama di SMP..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Lain-lain (Catatan / Riwayat Penyakit, jika ada)</label>
+                <textarea id="lainLain" rows="2" placeholder="Tuliskan jika ada info tambahan atau riwayat penyakit..."></textarea>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" onclick="setMetode('wa')" class="btn-submit btn-wa">Kirim via WA</button>
+                <button type="submit" onclick="setMetode('email')" class="btn-submit btn-email">Kirim via Email</button>
+            </div>
+        </form>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Pramuka SMK Alhuda Sariwangi</p>
+    </footer>
+
+    <script>
+        // Script untuk Hamburger Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        let metodeKirim = 'wa';
+
+        function setMetode(pilihan) {
+            metodeKirim = pilihan;
+        }
+
+        document.getElementById("formPramuka").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const tempatLahir = document.getElementById("tempatLahir").value;
+            const tanggalLahir = document.getElementById("tanggalLahir").value;
+            const nowa = document.getElementById("nowa").value;
+            const ig = document.getElementById("ig").value || "-";
+            const agama = document.getElementById("agama").value;
+            const golDarah = document.getElementById("golDarah").value;
+            const asalSekolah = document.getElementById("asalSekolah").value;
+            const alamat = document.getElementById("alamat").value;
+            
+            const namaAyah = document.getElementById("namaAyah").value;
+            const namaIbu = document.getElementById("namaIbu").value;
+            const kerjaAyah = document.getElementById("kerjaAyah").value;
+            const kerjaIbu = document.getElementById("kerjaIbu").value;
+            const waOrtu = document.getElementById("waOrtu").value;
+            const anakKe = document.getElementById("anakKe").value;
+            const saudaraPutra = document.getElementById("saudaraPutra").value;
+            const saudaraPutri = document.getElementById("saudaraPutri").value;
+
+            const bakat = document.getElementById("bakat").value;
+            const pengalaman = document.getElementById("pengalaman").value || "-";
+            const lainLain = document.getElementById("lainLain").value || "-";
+
+            const nomorAdminWA = "6289665454143"; 
+            const emailAdmin = "gugusdepan27.065.27.066@gmai.com";
+            const urlGoogleSheets = "https://script.google.com/macros/s/AKfycbzkE5HsQSg1KoUHpIgkt1dx3gCsJVdstSZss4gY8ihzVVcXfnwgycqV3AEpEXdKOAJ2/exec"; 
+
+            const formData = new URLSearchParams();
+            formData.append('nama', nama);
+            formData.append('tempatLahir', tempatLahir);
+            formData.append('tanggalLahir', tanggalLahir);
+            formData.append('nowa', nowa);
+            formData.append('ig', ig);
+            formData.append('agama', agama);
+            formData.append('golDarah', golDarah);
+            formData.append('asalSekolah', asalSekolah);
+            formData.append('alamat', alamat);
+            formData.append('namaAyah', namaAyah);
+            formData.append('namaIbu', namaIbu);
+            formData.append('kerjaAyah', kerjaAyah);
+            formData.append('kerjaIbu', kerjaIbu);
+            formData.append('waOrtu', waOrtu);
+            formData.append('anakKe', anakKe);
+            formData.append('saudaraPutra', saudaraPutra);
+            formData.append('saudaraPutri', saudaraPutri);
+            formData.append('bakat', bakat);
+            formData.append('pengalaman', pengalaman);
+            formData.append('lainLain', lainLain);
+
+            const tombolSumbit = event.target.querySelector('button[type="submit"]');
+            const teksAsliTombol = tombolSumbit.innerText;
+            tombolSumbit.innerText = "Memproses...";
+            tombolSumbit.disabled = true;
+
+            fetch(urlGoogleSheets, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            })
+            .then(() => {
+                tombolSumbit.innerText = teksAsliTombol;
+                tombolSumbit.disabled = false;
+
+                const isiPesan = `*Halo min🖐Saya mau daftar anggota baru Pramuka SMK AL-HUDA, berikut biodata saya :*\nSMK Alhuda Sariwangi\n\n` +
+                                 `*A. DATA PRIBADI*\n` +
+                                 `Nama: ${nama}\n` +
+                                 `TTL: ${tempatLahir}, ${tanggalLahir}\n` +
+                                 `No. WA: ${nowa}\n\n` +
+                                 `Data lengkap pendaftaran sudah tersimpan.Terima kasih!`;
+
+                if (metodeKirim === 'wa') {
+                    const linkWA = `https://api.whatsapp.com/send?phone=${nomorAdminWA}&text=${encodeURIComponent(isiPesan)}`;
+                    window.open(linkWA, '_blank');
+                } else {
+                    const subjekEmail = `Pendaftaran Pramuka - ${nama}`;
+                    const linkEmail = `mailto:${emailAdmin}?subject=${encodeURIComponent(subjekEmail)}&body=${encodeURIComponent(isiPesan)}`;
+                    window.location.href = linkEmail;
+                }
+            })
+            .catch(error => {
+                alert("Terjadi kesalahan sistem, silakan coba lagi.");
+                tombolSumbit.innerText = teksAsliTombol;
+                tombolSumbit.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
