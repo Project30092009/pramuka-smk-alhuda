@@ -110,10 +110,9 @@
         .form-row .form-group { flex: 1; min-width: 250px; }
         
         .btn-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
-        .btn-submit { flex: 1; min-width: 150px; border: none; padding: 15px; font-size: 1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; color: white; }
-        .btn-wa { background-color: var(--wa-color); }
-        .btn-email { background-color: var(--email-color); }
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); filter: brightness(0.9); }
+        .btn-submit { flex: 1; min-width: 150px; border: none; padding: 15px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; color: white; background-color: var(--primary-color); }
+        .btn-submit:hover { background-color: var(--secondary-color); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .btn-submit:disabled { background-color: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
         
         footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; }
 
@@ -275,8 +274,7 @@
             </div>
             
             <div class="btn-group">
-                <button type="submit" onclick="setMetode('wa')" class="btn-submit btn-wa">Kirim via WA</button>
-                <button type="submit" onclick="setMetode('email')" class="btn-submit btn-email">Kirim via Email</button>
+                <button type="submit" id="btn-submit-utama" class="btn-submit">Kirim Pendaftaran</button>
             </div>
         </form>
     </div>
@@ -294,12 +292,7 @@
             navMenu.classList.toggle('active');
         });
 
-        let metodeKirim = 'wa';
-
-        function setMetode(pilihan) {
-            metodeKirim = pilihan;
-        }
-
+        // SCRIPT PENGIRIMAN DATA KE SPREADSHEET
         document.getElementById("formPramuka").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -326,8 +319,7 @@
             const pengalaman = document.getElementById("pengalaman").value || "-";
             const lainLain = document.getElementById("lainLain").value || "-";
 
-            const nomorAdminWA = "6289665454143"; 
-            const emailAdmin = "gugusdepan27.065.27.066@gmai.com";
+            // Link Google Sheets yang sudah kamu atur
             const urlGoogleSheets = "https://script.google.com/macros/s/AKfycbzkE5HsQSg1KoUHpIgkt1dx3gCsJVdstSZss4gY8ihzVVcXfnwgycqV3AEpEXdKOAJ2/exec"; 
 
             const formData = new URLSearchParams();
@@ -352,40 +344,33 @@
             formData.append('pengalaman', pengalaman);
             formData.append('lainLain', lainLain);
 
-            const tombolSumbit = event.target.querySelector('button[type="submit"]');
-            const teksAsliTombol = tombolSumbit.innerText;
-            tombolSumbit.innerText = "Memproses...";
-            tombolSumbit.disabled = true;
+            // Efek Loading pada Tombol
+            const tombolSubmit = document.getElementById('btn-submit-utama');
+            const teksAsliTombol = tombolSubmit.innerText;
+            tombolSubmit.innerText = "Memproses Data...";
+            tombolSubmit.disabled = true;
 
+            // Proses Kirim Background ke Spreadsheet
             fetch(urlGoogleSheets, {
                 method: "POST",
                 body: formData,
                 mode: "no-cors"
             })
             .then(() => {
-                tombolSumbit.innerText = teksAsliTombol;
-                tombolSumbit.disabled = false;
+                // Kembalikan teks tombol
+                tombolSubmit.innerText = teksAsliTombol;
+                tombolSubmit.disabled = false;
 
-                const isiPesan = `*Halo min🖐Saya mau daftar anggota baru Pramuka SMK AL-HUDA, berikut biodata saya :*\nSMK Alhuda Sariwangi\n\n` +
-                                 `*A. DATA PRIBADI*\n` +
-                                 `Nama: ${nama}\n` +
-                                 `TTL: ${tempatLahir}, ${tanggalLahir}\n` +
-                                 `No. WA: ${nowa}\n\n` +
-                                 `Data lengkap pendaftaran sudah tersimpan.Terima kasih!`;
-
-                if (metodeKirim === 'wa') {
-                    const linkWA = `https://api.whatsapp.com/send?phone=${nomorAdminWA}&text=${encodeURIComponent(isiPesan)}`;
-                    window.open(linkWA, '_blank');
-                } else {
-                    const subjekEmail = `Pendaftaran Pramuka - ${nama}`;
-                    const linkEmail = `mailto:${emailAdmin}?subject=${encodeURIComponent(subjekEmail)}&body=${encodeURIComponent(isiPesan)}`;
-                    window.location.href = linkEmail;
-                }
+                // Munculkan popup sukses
+                alert("Berhasil! 🎉 Data pendaftaran kamu sudah masuk ke sistem kami.");
+                
+                // Kosongkan formulir
+                document.getElementById("formPramuka").reset();
             })
             .catch(error => {
                 alert("Terjadi kesalahan sistem, silakan coba lagi.");
-                tombolSumbit.innerText = teksAsliTombol;
-                tombolSumbit.disabled = false;
+                tombolSubmit.innerText = teksAsliTombol;
+                tombolSubmit.disabled = false;
             });
         });
     </script>
