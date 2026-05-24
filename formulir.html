@@ -6,115 +6,220 @@
     <meta name="keywords" content="Pramuka SMK Alhuda Sariwangi, SMK Alhuda, Pramuka Sariwangi, Pendaftaran Pramuka"/>
     <meta name="author" content="Pramuka SMK Alhuda Sariwangi"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulir - Pramuka SMK Alhuda Sariwangi</title>
+    <title>Formulir Pendaftaran - Pramuka SMK Alhuda Sariwangi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
     <style>
         :root { 
             --primary-color: #5C4033; 
             --secondary-color: #8B5A2B; 
             --highlight-color: #DAA520; 
             --bg-color: #F8F9FA; 
-            --wa-color: #25D366; 
-            --email-color: #0277BD; 
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-color); }
         
-        /* Navigasi Utama */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        body { 
+            background-color: var(--bg-color); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* ==================== NAVBAR (SAMA DENGAN HALAMAN LAIN) ==================== */
         nav { 
             background-color: var(--primary-color); 
-            padding: 15px 30px; 
+            padding: 10px 30px; 
             position: sticky; 
             top: 0; 
             z-index: 999; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            min-height: 65px;
         }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
-        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); }
-        
-        /* --- GAYA TOMBOL HAMBURGER --- */
-        .menu-toggle {
-            display: none; /* Sembunyikan di PC */
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+        .nav-brand img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: screen;
+        }
+        .nav-brand-text {
+            display: flex;
             flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            padding: 5px;
-            z-index: 1001; /* Pastikan tombol selalu berada paling atas */
+            line-height: 1.2;
         }
-        
-        .menu-toggle .bar {
-            width: 25px;
-            height: 3px;
+        .nav-brand-text .title {
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: 0.5px;
+        }
+        .nav-brand-text .subtitle {
+            font-size: 11px;
+            color: var(--highlight-color);
+            font-weight: 400;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 8px; 
+            align-items: center; 
+            margin: 0; 
+            padding: 0;
+        }
+        nav ul li a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 13.5px; 
+            padding: 8px 14px; 
+            border-radius: 30px; 
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover, 
+        nav ul li a.active { 
+            background-color: var(--highlight-color); 
+            color: var(--primary-color); 
+        }
+
+        .menu-toggle { 
+            display: none; 
+            flex-direction: column; 
+            cursor: pointer; 
+            gap: 5px; 
+        }
+        .menu-toggle .bar { 
+            width: 28px; 
+            height: 3px; 
             background-color: white; 
-            border-radius: 3px;
-            transition: 0.3s;
+            border-radius: 3px; 
         }
 
-        /* --- MODE HP (Lebar layar di bawah 768px) --- */
         @media (max-width: 768px) {
-            nav {
-                justify-content: flex-end; /* Posisi tombol hamburger di kanan */
-                padding: 15px 20px;
+            nav { padding: 12px 20px; }
+            .menu-toggle { display: flex; }
+            nav ul { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 65px; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--primary-color); 
+                padding: 15px 0; 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.2);
             }
-            
-            .menu-toggle {
-                display: flex; /* Munculkan tombol di HP */
-            }
-
-            nav ul {
-                display: none; /* Sembunyikan menu bawaan */
-                flex-direction: column;
-                width: 100%;
-                background-color: var(--primary-color);
-                position: absolute;
-                top: 100%; /* Turun tepat di bawah navbar */
-                left: 0;
-                padding: 10px 0 20px 0;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.2);
-                z-index: 1000;
-            }
-
-            nav ul.active {
-                display: flex; /* Munculkan menu saat tombol diklik */
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-                margin: 5px 0;
-            }
-
-            nav ul li a {
-                display: block; 
-                padding: 12px;
-                border-radius: 0; 
-            }
+            nav ul.active { display: flex; }
+            nav ul li { width: 100%; text-align: center; margin: 6px 0; }
+            nav ul li a { display: block; padding: 12px; border-radius: 0; }
         }
 
-        .page-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
-        .container { max-width: 700px; margin: 0 auto 60px; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* ==================== FORMULIR (TIDAK DIUBAH) ==================== */
+        .page-header { 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
         
-        .section-title { margin-top: 30px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; color: var(--secondary-color); font-size: 1.2rem; font-weight: 700; }
+        .container { 
+            max-width: 700px; 
+            margin: 0 auto 60px; 
+            padding: 40px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            flex: 1; 
+        }
+        
+        .section-title { 
+            margin-top: 30px; 
+            margin-bottom: 20px; 
+            padding-bottom: 10px; 
+            border-bottom: 2px solid #eee; 
+            color: var(--secondary-color); 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+        }
         .section-title:first-child { margin-top: 0; }
 
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary-color); font-size: 0.95rem; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #eee; border-radius: 8px; font-size: 1rem; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--highlight-color); outline: none; }
+        .form-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--primary-color); 
+            font-size: 0.95rem; 
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 2px solid #eee; 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            transition: 0.3s; 
+        }
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus { 
+            border-color: var(--highlight-color); 
+            outline: none; 
+        }
         
         .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
         .form-row .form-group { flex: 1; min-width: 250px; }
         
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
-        .btn-submit { flex: 1; min-width: 150px; border: none; padding: 15px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; color: white; background-color: var(--primary-color); }
-        .btn-submit:hover { background-color: var(--secondary-color); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-        .btn-submit:disabled { background-color: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
-        
-        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; }
+        .btn-group { 
+            display: flex; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+            margin-top: 40px; 
+        }
+        .btn-submit { 
+            flex: 1; 
+            min-width: 150px; 
+            border: none; 
+            padding: 15px; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            color: white; 
+            background-color: var(--primary-color); 
+        }
+        .btn-submit:hover { 
+            background-color: var(--secondary-color); 
+            transform: translateY(-3px); 
+        }
+
+        footer { 
+            background-color: var(--primary-color); 
+            color: rgba(255,255,255,0.8); 
+            text-align: center; 
+            padding: 25px; 
+            margin-top: auto; 
+        }
 
         @media (max-width: 600px) {
             .container { padding: 20px; }
@@ -123,7 +228,16 @@
     </style>
 </head>
 <body>
+
     <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="img/logo-sekolah.jpeg" alt="Logo SMK Alhuda Sariwangi">
+            <div class="nav-brand-text">
+                <span class="title">SMK AL HUDA SARIWANGI</span>
+                <span class="subtitle">Gugus Depan 27.065 - 27.066</span>
+            </div>
+        </a>
+
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -131,7 +245,7 @@
         </div>
         
         <ul id="nav-menu">
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html">Beranda</a></li> 
             <li><a href="profile.html">Profile</a></li>
             <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
             <li><a href="informasi.html">Informasi</a></li>
@@ -280,11 +394,10 @@
     </div>
     
     <footer>
-        <p>&copy; 2026 Pramuka SMK Alhuda Sariwangi</p>
+        <p>&copy; 2026 Pramuka SMK Alhuda Sariwangi. All rights reserved.</p>
     </footer>
 
     <script>
-        // Script untuk Hamburger Menu
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
 
@@ -292,7 +405,7 @@
             navMenu.classList.toggle('active');
         });
 
-        // SCRIPT PENGIRIMAN DATA KE SPREADSHEET
+        // SCRIPT PENGIRIMAN DATA KE SPREADSHEET (tetap sama)
         document.getElementById("formPramuka").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -319,7 +432,6 @@
             const pengalaman = document.getElementById("pengalaman").value || "-";
             const lainLain = document.getElementById("lainLain").value || "-";
 
-            // Link Google Sheets yang sudah kamu atur
             const urlGoogleSheets = "https://script.google.com/macros/s/AKfycbzkE5HsQSg1KoUHpIgkt1dx3gCsJVdstSZss4gY8ihzVVcXfnwgycqV3AEpEXdKOAJ2/exec"; 
 
             const formData = new URLSearchParams();
@@ -344,27 +456,20 @@
             formData.append('pengalaman', pengalaman);
             formData.append('lainLain', lainLain);
 
-            // Efek Loading pada Tombol
             const tombolSubmit = document.getElementById('btn-submit-utama');
             const teksAsliTombol = tombolSubmit.innerText;
             tombolSubmit.innerText = "Memproses Data...";
             tombolSubmit.disabled = true;
 
-            // Proses Kirim Background ke Spreadsheet
             fetch(urlGoogleSheets, {
                 method: "POST",
                 body: formData,
                 mode: "no-cors"
             })
             .then(() => {
-                // Kembalikan teks tombol
                 tombolSubmit.innerText = teksAsliTombol;
                 tombolSubmit.disabled = false;
-
-                // Munculkan popup sukses
                 alert("Berhasil! 🎉 Data pendaftaran kamu sudah masuk ke sistem kami.");
-                
-                // Kosongkan formulir
                 document.getElementById("formPramuka").reset();
             })
             .catch(error => {

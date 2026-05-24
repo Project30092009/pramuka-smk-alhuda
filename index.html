@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda - Pramuka SMK Alhuda Sariwangi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-color: #5C4033;
@@ -18,53 +19,248 @@
             --text-color: #333;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
-        
-        nav { background-color: var(--primary-color); padding: 15px 30px; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 15px; border-radius: 30px; transition: all 0.3s ease; }
-        nav ul li a:hover, nav ul li a.active { background-color: var(--highlight-color); color: var(--primary-color); transform: translateY(-2px); }
-        
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
-        .menu-toggle .bar { width: 25px; height: 3px; background-color: white; border-radius: 3px; transition: 0.3s; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+        }
 
+        /* ==================== NAVBAR ==================== */
+        nav { 
+            background-color: var(--primary-color); 
+            padding: 10px 30px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 65px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+        .nav-brand img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: screen;
+        }
+        .nav-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .nav-brand-text .title {
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: 0.5px;
+        }
+        .nav-brand-text .subtitle {
+            font-size: 11px;
+            color: var(--highlight-color);
+            font-weight: 400;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 8px; 
+            align-items: center; 
+            margin: 0; 
+            padding: 0;
+        }
+        nav ul li a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 13.5px; 
+            padding: 8px 14px; 
+            border-radius: 30px; 
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover, 
+        nav ul li a.active { 
+            background-color: var(--highlight-color); 
+            color: var(--primary-color); 
+        }
+
+        .menu-toggle { 
+            display: none; 
+            flex-direction: column; 
+            cursor: pointer; 
+            gap: 5px; 
+        }
+        .menu-toggle .bar { 
+            width: 28px; 
+            height: 3px; 
+            background-color: white; 
+            border-radius: 3px; 
+            transition: 0.3s; 
+        }
+
+        /* Mobile Menu */
         @media (max-width: 768px) {
-            nav { display: flex; justify-content: flex-end; padding: 15px 20px; }
+            nav { padding: 12px 20px; }
             .menu-toggle { display: flex; }
-            nav ul { display: none; flex-direction: column; width: 100%; background-color: var(--primary-color); position: absolute; top: 55px; left: 0; padding: 10px 0 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.2); }
+            nav ul { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 65px; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--primary-color); 
+                padding: 15px 0; 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            }
             nav ul.active { display: flex; }
-            nav ul li { width: 100%; text-align: center; margin: 5px 0; }
+            nav ul li { width: 100%; text-align: center; margin: 6px 0; }
             nav ul li a { display: block; padding: 12px; border-radius: 0; }
         }
 
-        header { position: relative; background: linear-gradient(to right, rgba(92, 64, 51, 0.9), rgba(139, 90, 43, 0.7)), url('https://images.unsplash.com/photo-1523861719231-645b2bb5f84d?auto=format&fit=crop&w=1920&q=80') center/cover fixed; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px; }
+        /* ==================== HERO & LAINNYA (tetap sama) ==================== */
+        header { 
+            position: relative; 
+            background: linear-gradient(to right, rgba(92, 64, 51, 0.9), rgba(139, 90, 43, 0.7)), 
+                        url('https://images.unsplash.com/photo-1523861719231-645b2bb5f84d?auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
+            height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            padding: 20px; 
+        }
+
+        .logo-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 20px; 
+            animation: fadeInDown 1.2s ease-out; 
+        }
+        .logo-ambalan { 
+            width: 70px; 
+            height: auto; 
+            object-fit: contain; 
+            mix-blend-mode: screen;
+        }
+
         .hero-content { animation: fadeInDown 1.5s ease-out; z-index: 2; }
-        header h1 { font-size: 3.5rem; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); }
+        header h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6); 
+        }
         header h1 span { color: var(--highlight-color); }
-        header h2 { font-size: 1.5rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
-        .logo-container { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .logo-ambalan { width: 70px; height: auto; object-fit: contain; }
-        
-        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 15px 35px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden; }
-        .btn-primary { background-color: var(--highlight-color); color: var(--primary-color); box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4); }
-        .btn-primary:hover { background-color: white; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4); transform: translateY(-3px); }
-        .btn-secondary { background-color: transparent; border: 2px solid white; color: white; }
-        .btn-secondary:hover { background-color: white; color: var(--primary-color); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); }
+        header h2 { 
+            font-size: 1.5rem; 
+            margin-bottom: 40px; 
+            font-weight: 300; 
+            letter-spacing: 1px; 
+        }
 
-        .custom-shape-divider-bottom { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; transform: rotate(180deg); }
-        .custom-shape-divider-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 80px; }
-        .custom-shape-divider-bottom .shape-fill { fill: var(--bg-color); }
+        .btn-group { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        .btn { 
+            padding: 15px 35px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .btn-primary { 
+            background-color: var(--highlight-color); 
+            color: var(--primary-color); 
+        }
+        .btn-primary:hover { 
+            background-color: white; 
+            transform: translateY(-3px); 
+        }
+        .btn-secondary { 
+            background-color: transparent; 
+            border: 2px solid white; 
+            color: white; 
+        }
+        .btn-secondary:hover { 
+            background-color: white; 
+            color: var(--primary-color); 
+            transform: translateY(-3px); 
+        }
 
-        .highlights { padding: 80px 20px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: center; }
-        .card-highlight { background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border-bottom: 5px solid var(--secondary-color); }
-        .card-highlight:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--highlight-color); }
-        .card-highlight h3 { color: var(--primary-color); margin: 15px 0; font-size: 1.5rem; }
-        .card-highlight p { color: #666; font-size: 0.95rem; line-height: 1.6; }
-        .icon { font-size: 3rem; }
+        .custom-shape-divider-bottom { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            overflow: hidden; 
+            line-height: 0; 
+            transform: rotate(180deg); 
+        }
+        .custom-shape-divider-bottom svg { 
+            position: relative; 
+            display: block; 
+            width: calc(100% + 1.3px); 
+            height: 80px; 
+        }
+        .custom-shape-divider-bottom .shape-fill { 
+            fill: var(--bg-color); 
+        }
 
-        footer { background-color: var(--primary-color); color: rgba(255,255,255,0.8); text-align: center; padding: 25px; font-size: 0.9rem; }
+        .highlights { 
+            padding: 80px 20px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            text-align: center; 
+        }
+        .card-highlight { 
+            background: white; 
+            padding: 40px 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            transition: all 0.4s ease; 
+            border-bottom: 5px solid var(--secondary-color); 
+        }
+        .card-highlight:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+            border-color: var(--highlight-color); 
+        }
+
+        footer { 
+            background-color: var(--primary-color); 
+            color: rgba(255,255,255,0.8); 
+            text-align: center; 
+            padding: 25px; 
+            font-size: 0.9rem; 
+        }
 
         @keyframes fadeInDown {
             0% { opacity: 0; transform: translateY(-30px); }
@@ -72,15 +268,23 @@
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
+            header h1 { font-size: 2.4rem; }
             header h2 { font-size: 1.2rem; }
-            .btn-group { flex-direction: column; }
+            .btn-group { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="img/logo-sekolah.jpeg" alt="Logo SMK Alhuda Sariwangi">
+            <div class="nav-brand-text">
+                <span class="title">SMK AL HUDA SARIWANGI</span>
+                <span class="subtitle">Gugus Depan 27.065 - 27.066</span>
+            </div>
+        </a>
+
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -88,20 +292,23 @@
         </div>
         
         <ul id="nav-menu">
-            <li><a href="index.html" class="active">Beranda</a></li> <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" class="active">Beranda</a></li> 
+            <li><a href="profile.html">Profile</a></li>
             <li><a href="strukturpengurus.html">Struktur Kepengurusan</a></li>
             <li><a href="informasi.html">Informasi</a></li>
             <li><a href="prestasi.html">Prestasi</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="formulir.html">Formulir Pendaftaran</a></li>
+            <li><a href="formulir.html">Formulir</a></li>
         </ul>
     </nav>
 
+    <!-- Sisanya tetap sama -->
     <header>
         <div class="logo-container">
-            <img src="img/logo-putra.jpeg" alt="Logo Ambalan Putra" class="logo-ambalan" />
-            <img src="img/logo-putri.jpeg" alt="Logo Ambalan Putri" class="logo-ambalan" />
+            <img src="img/logo-putra.jpeg" alt="Logo Ambalan Putra" class="logo-ambalan">
+            <img src="img/AMBALAN.jpeg" alt="Logo Ambalan" class="logo-ambalan">
+            <img src="img/logo-putri.jpeg" alt="Logo Ambalan Putri" class="logo-ambalan">
         </div>
         <div class="hero-content">
             <h1>Dewan Ambalan<br><span>Salman Alfarisi & Fatimah Az Zahra</span></h1>
